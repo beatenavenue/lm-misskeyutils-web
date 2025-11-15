@@ -1,4 +1,69 @@
 <!DOCTYPE html>
 <html>
-<body>sample</body>
+
+<head>
+  <title>LimitManage for Misskey WebUtils</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <div class="h-app">
+      <a href="" class="u-url p-name">
+        LimitManage for Misskey
+      </a>
+    </div>
+    <div class="main-article">
+      <h1>Misskeyユーザ用の(少しだけ)便利なツール</h1>
+      <p>
+        🚧 工事中... 🚧
+        <!-- Mastodon系インスタンスでは標準機能の「古い投稿を自動的に削除する」機能に似たものをMisskeyで実現します。 -->
+      </p>
+    </div>
+
+    <section class="card" aria-labelledby="oauth-title">
+      <h2 id="oauth-title">Misskey.io OAuth2 / PKCE 接続テスト</h2>
+      <p class="help">
+        これはGitHub Pages上の完全公開フロントエンドから、
+        OAuth2 / PKCE（IndieAuth拡張）を利用して <code>misskey.io</code> にアクセストークンを取得できるか検証するための簡易ツールです。
+      </p>
+
+      <div class="help">
+        このページのURL自体が <code>client_id</code> と <code>redirect_uri</code> としてMisskeyに送信されます:
+        <code id="redirect-uri-display"></code>
+      </div>
+
+      <div class="buttons">
+        <button id="start-auth-btn" type="button">Misskey.io で認可を開始</button>
+        <button id="clear-session-btn" type="button" class="secondary">セッション情報をクリア</button>
+      </div>
+
+      <div class="status" id="oauth-status" aria-live="polite"></div>
+    </section>
+
+    <section class="card" aria-labelledby="api-title">
+      <h2 id="api-title">アクセストークンで簡単なAPIを実行</h2>
+      <p class="help">
+        取得したアクセストークンを使って <code>/oauth/api/userinfo</code> を叩き、ユーザ情報が取得できるか確認します。
+      </p>
+      <div class="buttons">
+        <button id="call-userinfo-btn" type="button" disabled>ユーザ情報を取得</button>
+      </div>
+      <div class="status" id="api-status" aria-live="polite"></div>
+    </section>
+  </main>
+  <footer>
+    <div class="site-navigation-foot">
+      <ul>
+        <li><a href="https://github.com/beatenavenue/lm-misskeyutils-web">GitHubリポジトリ</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="app.js" defer></script>
+</body>
+
 </html>
