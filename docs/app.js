@@ -13,8 +13,13 @@ const STORAGE_KEYS = {
 };
 
 function getRedirectUri() {
-  // GitHub Pagesでは /{repo}/ 配下になることを想定し、クエリやハッシュを除いたURLをredirect_uriに用いる
-  return window.location.origin + window.location.pathname;
+  // GitHub Pages上の本番URLでは、IndieAuthの検証に用いるため固定のURLを返す
+  if (window.location.hostname === "beatenavenue.github.io") {
+    return "https://beatenavenue.github.io/lm-misskeyutils-web/";
+  }
+  const url = window.location.origin + window.location.pathname;
+  // それ以外の環境では末尾スラッシュ付きのURLをcanonicalとして扱う
+  return url.endsWith("/") ? url : url + "/";
 }
 
 function getClientId() {
