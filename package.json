@@ -1,0 +1,13 @@
+{
+  "name": "lm-misskeyutils-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node dev/dev-server.js"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "express": "^4.19.2"
+  }
+}
